@@ -7,13 +7,13 @@ CREATE TABLE authors (
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
-    title TEXT  NOT NULL,
+    title TEXT NOT NULL,
     content TEXT NOT NULL,
     author_id INTEGER REFERENCES authors(id) NOT NULL,
-    author_name TEXT REFERENCES authors(name) NOT NULL,
-    created_at BIGINT NOT NULL,
-    published_at BIGINT NOT NULL
+    created_at BIGINT NOT NULL DEFAULT extract(epoch from now())
 );
 
-INSERT INTO authors (id, name) VALUES (0, 'Дмитрий');
-INSERT INTO posts (id, author_id, title, content, created_at) VALUES (0, 0, 'Статья', 'Содержание статьи', 0);
+INSERT INTO authors (name) VALUES ('Дмитрий');
+INSERT INTO authors (name) VALUES ('Semen');
+INSERT INTO posts (author_id, title, content) VALUES (1, 'Статья', 'Содержание статьи');
+INSERT INTO posts (author_id, title, content) VALUES (2, 'Статья2', 'Содержание статьи 2');

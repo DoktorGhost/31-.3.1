@@ -26,7 +26,7 @@ func main() {
 	db1 := memdb.New()
 
 	// Реляционная БД PostgreSQL.
-	db2, err := postgres.New("postgres://postgres:postgres@server.domain/posts")
+	db2, err := postgres.New("postgres://test_user:qwerty123@localhost:5432/testdb")
 	if err != nil {
 		log.Fatal(err)
 	}
