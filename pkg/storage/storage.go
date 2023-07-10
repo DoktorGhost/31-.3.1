@@ -1,6 +1,11 @@
 package storage
 
+import (
+	"errors"
+)
+
 // Post - публикация.
+
 type Post struct {
 	ID          int
 	Title       string
@@ -18,3 +23,7 @@ type Interface interface {
 	UpdatePost(Post) error  // обновление публикации
 	DeletePost(Post) error  // удаление публикации по ID
 }
+
+var (
+	ErrPostNotFound = errors.New("пост не найден")
+)
